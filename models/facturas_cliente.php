@@ -39,20 +39,21 @@
             return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
         }
         //funcion para actualizar facturas
-        public function update_facturas($id, $idsocio, $fechafactura, $fechafactura, $detalle, $subtotal, $totalisv, $total, $fechavencimiento, $estado){
+        public function update_facturas($id, $numerofactura, $idsocio, $fechafactura, $fechafactura, $detalle, $subtotal, $totalisv, $total, $fechavencimiento, $estado){
             $conectar= parent::Conexion();
             parent::set_names();
-            $sql="UPDATE ma_facturas_cliente SET id_socio=?, fecha_factura=?, fecha_factura=?, detalle=?, sub_total=?, total_isv=?, total=?, fecha_vencimiento=?, estado=? WHERE id=?;";
+            $sql="UPDATE ma_facturas_cliente SET numero_factura=?, id_socio=?, fecha_factura=?, fecha_factura=?, detalle=?, sub_total=?, total_isv=?, total=?, fecha_vencimiento=?, estado=? WHERE id=?;";
             $sql=$conectar->prepare($sql);
-            $sql->bindValue(1,$idsocio);
-            $sql->bindValue(2,$fechafactura);
-            $sql->bindValue(3,$detalle);
-            $sql->bindValue(4,$subtotal);
-            $sql->bindValue(5,$totalisv);
-            $sql->bindValue(6,$total);
-            $sql->bindValue(7,$fechavencimiento);
-            $sql->bindValue(8,$estado);
-            $sql->bindValue(9,$id);
+            $sql->bindValue(1,$numerofactura);
+            $sql->bindValue(2,$idsocio);
+            $sql->bindValue(3,$fechafactura);
+            $sql->bindValue(4,$detalle);
+            $sql->bindValue(5,$subtotal);
+            $sql->bindValue(6,$totalisv);
+            $sql->bindValue(7,$total);
+            $sql->bindValue(8,$fechavencimiento);
+            $sql->bindValue(9,$estado);
+            $sql->bindValue(10,$id);
             $sql->execute();
             return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
         }
