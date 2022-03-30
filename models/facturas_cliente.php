@@ -39,10 +39,10 @@
             return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
         }
         //funcion para actualizar facturas
-        public function update_facturas($id, $idsocio, $fechafactura, $detalle, $subtotal, $totalisv, $total, $fechavencimiento, $estado){
+        public function update_facturas($id, $idsocio, $fechafactura, $fechafactura, $detalle, $subtotal, $totalisv, $total, $fechavencimiento, $estado){
             $conectar= parent::Conexion();
             parent::set_names();
-            $sql="UPDATE ma_facturas_cliente SET id_socio=?, fecha_factura=?, detalle=?, sub_total=?, total_isv=?, total=?, fecha_vencimiento=?, estado=? WHERE id=?;";
+            $sql="UPDATE ma_facturas_cliente SET id_socio=?, fecha_factura=?, fecha_factura=?, detalle=?, sub_total=?, total_isv=?, total=?, fecha_vencimiento=?, estado=? WHERE id=?;";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1,$idsocio);
             $sql->bindValue(2,$fechafactura);
